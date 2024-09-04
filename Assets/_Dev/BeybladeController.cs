@@ -135,7 +135,5 @@ public class BeybladeController : MonoBehaviour
         var directionToOther = collision.collider.transform.position - transform.position;
 
         rigidBody.AddForce(impactForce * -5f * directionToOther, ForceMode.Impulse);
-
-        Debug.Log("Collision " + name);
     }
 }

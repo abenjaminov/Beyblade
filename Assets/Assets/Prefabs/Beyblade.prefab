@@ -139,6 +139,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   legTransform: {fileID: 2229559961957602195}
+  oponentBeybladeTransform: {fileID: 0}
   positionSmoothSpeed: 5
 --- !u!114 &1593113895904646264
 MonoBehaviour:
