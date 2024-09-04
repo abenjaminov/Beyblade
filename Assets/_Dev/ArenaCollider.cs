@@ -23,7 +23,7 @@ public class ArenaCollider : MonoBehaviour
             // Apply the new velocity
             rb.velocity = newVelocity;
 
-            rb.AddForce(newVelocity.normalized * .25f, ForceMode.Impulse);
+            rb.AddForce(directionToCenter, ForceMode.Impulse);
         }
     }
 
@@ -31,6 +31,6 @@ public class ArenaCollider : MonoBehaviour
     void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, 3.35f);
+        Gizmos.DrawWireSphere(transform.position, 3.2f);
     }
 }

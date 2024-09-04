@@ -5,7 +5,7 @@ namespace Assets._Dev.Behaviours
 {
     public class Spin : MonoBehaviour
     {
-        public float rotationSpeed = 10f;
+        public float rotationSpeed = 50f;
 
         // Use this for initialization
         void Start()

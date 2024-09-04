@@ -7,25 +7,37 @@ using static UnityEditor.PlayerSettings;
 
 public class BeybladeController : MonoBehaviour
 {
+    [Header("Physics Values")]
+    [Tooltip("Determines the linear velocity force magnitude of the beyblade")]
     public float launchForce = 1f;
+    [Tooltip("Determines how much the beyblade is drawn to the center")]
     public float inwardForce = 10f;
-    public float raycastDistance = 15f;
-    public Transform ArenaCenter;
+    [Tooltip("Sets the direction that the beyblade will start")]
     public bool isStartRight = true;
+    [Tooltip("The max angle that the beyblade can tilt from its UP direction")]
+    public float maxTiltAngle = 35f;
+
+    [Header("Environment")]
+    [Tooltip("Indicates the center of the arena")]
+    public Transform ArenaCenter;
+    [Tooltip("Layer the the arena has, so the beyblade can detect if its above it")]
+    public LayerMask arenaLayer;
+    [Tooltip("This is the transform for the leg of the beyblade, the contact point with the arena")]
+    public Transform legTransform;
+
+    [Header("Effects")]
+    [Tooltip("Effect that shows on collision")]
+    public GameObject SparksEffect;
 
     private Rigidbody rigidBody;
-
-    public float maxTiltAngle = 35f;
-    public LayerMask arenaLayer;
-
-    public Transform legTransform;
-    public Transform oponentBeybladeTransform;
-    
     private float legOffset;
+    private float raycastDistance = 15f;
+    private BeybladeConfig config;
 
     void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
+        config = GetComponent<BeybladeConfig>();
 
         legOffset = transform.position.y - legTransform.position.y;
 
@@ -43,15 +55,13 @@ public class BeybladeController : MonoBehaviour
         }
     }
 
-    public float positionSmoothSpeed = 150f; // Adjust this to control the speed of position change
-
     void PlaceOnBowlSurface(RaycastHit hit)
     {
         // Calculate the target position based on the hit point and leg offset
         Vector3 targetPosition = hit.point + transform.up * legOffset;
 
         // Smoothly interpolate between the current position and the target position
-        transform.position = targetPosition;//Vector3.Lerp(transform.position, targetPosition, positionSmoothSpeed * Time.deltaTime);
+        transform.position = targetPosition;
     }
 
     void AlignWithBowlSurface(RaycastHit arenaHit)
@@ -91,15 +101,6 @@ public class BeybladeController : MonoBehaviour
         }
     }
 
-    void GoTowardsOponent(RaycastHit hit)
-    {
-        var directionToOponent = (oponentBeybladeTransform.position - transform.position).normalized;
-
-        Vector3 projectedDirection = Vector3.ProjectOnPlane(directionToOponent, hit.normal).normalized;
-
-        rigidBody.AddForce(5f * projectedDirection, ForceMode.Force);
-    }
-
     void FixedUpdate()
     {
         //Raycast downward to detect the surface
@@ -122,7 +123,6 @@ public class BeybladeController : MonoBehaviour
 
             AlignWithBowlSurface(hit);
             PlaceOnBowlSurface(hit);
-            //GoTowardsOponent(hit);
         }
     }
 
@@ -131,9 +131,17 @@ public class BeybladeController : MonoBehaviour
         if (!collision.gameObject.CompareTag("Beyblade")) return;
 
         float impactForce = collision.impulse.magnitude;
-
+        
         var directionToOther = collision.collider.transform.position - transform.position;
 
-        rigidBody.AddForce(impactForce * -5f * directionToOther, ForceMode.Impulse);
+        if (impactForce == 0) impactForce = .5f;
+
+        Debug.Log(impactForce);
+
+        rigidBody.AddForce(impactForce * -3f * directionToOther, ForceMode.Impulse);
+
+        Instantiate(SparksEffect, collision.contacts[0].point, Quaternion.identity);
+
+        config.ChangeHealth(-5f);
     }
 }
