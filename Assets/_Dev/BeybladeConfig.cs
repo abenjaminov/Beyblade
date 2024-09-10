@@ -4,7 +4,8 @@ using UnityEngine.UI;
 
 public class BeybladeConfig : MonoBehaviour
 {
-	public GameObject Skin;
+    
+    public GameObject Skin;
 	public GameObject Character;
     public FloatVariable MaxHealth;
     public float CurrentHealth;
@@ -12,12 +13,17 @@ public class BeybladeConfig : MonoBehaviour
     [Header("GUI")]
     public Slider _slider;
 
+    [Header("Physics")]
+    public float roundsPerMinute = 50f;
+
     GameObject skinInstance;
+
+    private Spin Spin;
 
     public void Start()
     {
         skinInstance = Instantiate(Skin, transform);
-        skinInstance.AddComponent<Spin>().rotationSpeed = 2500f;
+        Spin = skinInstance.AddComponent<Spin>();
 
         Instantiate(Character, transform);
 
@@ -27,8 +33,14 @@ public class BeybladeConfig : MonoBehaviour
 
     public void ChangeHealth(float diff)
     {
-        CurrentHealth += diff;
+        CurrentHealth = Mathf.Clamp(CurrentHealth + diff,0, MaxHealth.Value);
 
         _slider.value = CurrentHealth / MaxHealth;
+        this.roundsPerMinute = 100 + 5 * CurrentHealth;
+    }
+
+    private void Update()
+    {
+        Spin.roundsPerMinute = roundsPerMinute;   
     }
 }

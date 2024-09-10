@@ -264,6 +264,7 @@ MonoBehaviour:
   MaxHealth: {fileID: 11400000, guid: 5f33a27608f94554281280aba3f5d409, type: 2}
   CurrentHealth: 0
   _slider: {fileID: 8222767476001348228}
+  roundsPerMinute: 600
 --- !u!65 &6126541769205577441
 BoxCollider:
   m_ObjectHideFlags: 0

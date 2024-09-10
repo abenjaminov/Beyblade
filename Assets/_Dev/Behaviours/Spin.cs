@@ -5,18 +5,14 @@ namespace Assets._Dev.Behaviours
 {
     public class Spin : MonoBehaviour
     {
-        public float rotationSpeed = 50f;
-
-        // Use this for initialization
-        void Start()
-        {
-
-        }
+        public float roundsPerMinute = 50f;
 
         // Update is called once per frame
         void Update()
         {
-            transform.Rotate(0, 1 * rotationSpeed * Time.deltaTime, 0);
+            var degreesPerSecond = roundsPerMinute * 360 / 60;
+
+            transform.Rotate(0, degreesPerSecond * Time.deltaTime, 0);
         }
     }
 }
