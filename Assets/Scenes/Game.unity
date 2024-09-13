@@ -670,8 +670,7 @@ PrefabInstance:
         type: 3}
       propertyPath: config
       value: 
-      objectReference: {fileID: 11400000, guid: 03ce825aafcd7b646bed9958d8d9a3e5,
-        type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 2361242696359315359, guid: 88fea559602550b4ea2ddb6ba95ddf93,
         type: 3}
       propertyPath: MaxHealth
@@ -801,6 +800,12 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8437947930918511000, guid: 88fea559602550b4ea2ddb6ba95ddf93,
+        type: 3}
+      propertyPath: config
+      value: 
+      objectReference: {fileID: 11400000, guid: 03ce825aafcd7b646bed9958d8d9a3e5,
+        type: 2}
     - target: {fileID: 8740534856884358763, guid: 88fea559602550b4ea2ddb6ba95ddf93,
         type: 3}
       propertyPath: m_Name
@@ -1565,8 +1570,7 @@ PrefabInstance:
         type: 3}
       propertyPath: config
       value: 
-      objectReference: {fileID: 11400000, guid: 934bb432f6279014e8f65786f5135030,
-        type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 2361242696359315359, guid: 88fea559602550b4ea2ddb6ba95ddf93,
         type: 3}
       propertyPath: MaxHealth
@@ -1691,6 +1695,12 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8437947930918511000, guid: 88fea559602550b4ea2ddb6ba95ddf93,
+        type: 3}
+      propertyPath: config
+      value: 
+      objectReference: {fileID: 11400000, guid: 934bb432f6279014e8f65786f5135030,
+        type: 2}
     - target: {fileID: 8740534856884358763, guid: 88fea559602550b4ea2ddb6ba95ddf93,
         type: 3}
       propertyPath: m_Name
