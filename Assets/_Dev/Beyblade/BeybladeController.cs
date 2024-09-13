@@ -1,12 +1,9 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using static UnityEditor.PlayerSettings;
 
 public class BeybladeController : MonoBehaviour
 {
+    BeybladeLiveConfiguration config;
+
     [Header("Physics Values")]
     [Tooltip("Determines the linear velocity force magnitude of the beyblade")]
     public float launchForce = 1f;
@@ -32,15 +29,19 @@ public class BeybladeController : MonoBehaviour
     private Rigidbody rigidBody;
     private float legOffset;
     private float raycastDistance = 15f;
-    private BeybladeConfig config;
 
-    void Start()
+    void Awake()
     {
+        config = GetComponent<BeybladeLiveConfiguration>();
+        config.CurrentHealth.Value = config.MaxHealth.Value;
+
         rigidBody = GetComponent<Rigidbody>();
-        config = GetComponent<BeybladeConfig>();
 
         legOffset = transform.position.y - legTransform.position.y;
+    }
 
+    private void Start()
+    {
         PlaceOnBowlSurface();
         ApplyLaunchForce();
     }
@@ -126,22 +127,35 @@ public class BeybladeController : MonoBehaviour
         }
     }
 
+    public void ChangeHealth(float diff)
+    {
+        config.CurrentHealth.Value = Mathf.Clamp(config.CurrentHealth + diff, 0, config.MaxHealth.Value);
+
+        config.RoundsPerMinute.Value = 100 + 5 * config.CurrentHealth.Value;
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
-        if (!collision.gameObject.CompareTag("Beyblade")) return;
-
-        float impactForce = collision.impulse.magnitude;
         
+        if (!collision.gameObject.TryGetComponent<BeybladeController>(out var beybladeController)) return;
+
+        //float impactForce = collision.impulse.magnitude;
+        float impactForce = 2 + 3 * Random.value;
+        Debug.Log(impactForce);
         var directionToOther = collision.collider.transform.position - transform.position;
 
-        if (impactForce == 0) impactForce = .5f;
-
-        Debug.Log(impactForce);
+        //if (impactForce == 0) impactForce = .5f;
 
         rigidBody.AddForce(impactForce * -3f * directionToOther, ForceMode.Impulse);
 
         Instantiate(SparksEffect, collision.contacts[0].point, Quaternion.identity);
 
-        config.ChangeHealth(-5f);
+        var healthVariable = beybladeController.config.Attack.Value / (beybladeController.config.Attack.Value + config.Defense.Value);
+
+        var healthChange = 50 + healthVariable;
+
+        ChangeHealth(-healthChange);
+
+        rigidBody.angularVelocity = Vector3.zero;
     }
 }

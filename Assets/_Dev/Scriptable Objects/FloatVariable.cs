@@ -1,11 +1,30 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [CreateAssetMenu(fileName = "Floats", menuName = "Variables/Float", order = 1)]
 public class FloatVariable : ScriptableObject
 {
-    public float Value;
+    [SerializeField] private float _value;
+    public UnityAction OnValueChangeEvent;
+
+    public float Value
+    {
+        get
+        {
+            return _value;
+        }
+        set
+        {
+            _value = value;
+
+            OnValueChangeEvent?.Invoke();
+        }
+    }
+
+    private void OnValidate()
+    {
+        OnValueChangeEvent?.Invoke();
+    }
 
     // Implicit conversion from FloatVariable to float
     public static implicit operator float(FloatVariable floatVar) => floatVar.Value;

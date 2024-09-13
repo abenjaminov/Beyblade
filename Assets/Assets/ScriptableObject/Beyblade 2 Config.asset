@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6719bec40d0bfa84ab5f07fa9692eef8, type: 3}
+  m_Name: Beyblade 2 Config
+  m_EditorClassIdentifier: 
+  Skin: {fileID: 5126774208104110470, guid: 34fedd03d68bf0345a2f4162792fe627, type: 3}
+  Character: {fileID: 6781810818603023679, guid: ff752b1927a712148906231a6604a7a3,
+    type: 3}
+  MaxHealth: {fileID: 11400000, guid: f45a95ab0c1f3924ebde74c47377dee4, type: 2}
+  Attack: {fileID: 11400000, guid: 594ebe7019a824b4fb02c71e313fc900, type: 2}
+  Defense: {fileID: 11400000, guid: af45492c04657b64893e7c98b14f4547, type: 2}
+  CurrentHealth: {fileID: 11400000, guid: a912d62479e12fe4eb13adc894024a01, type: 2}
+  RoundsPerMinute: {fileID: 11400000, guid: 0004b399a2269424ca264b933b39d803, type: 2}

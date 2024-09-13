@@ -166,8 +166,10 @@ GameObject:
   - component: {fileID: 8125060291169574394}
   - component: {fileID: 5506587714093906921}
   - component: {fileID: 3431867197990882699}
-  - component: {fileID: 1593113895904646264}
+  - component: {fileID: 6260352034790990684}
   - component: {fileID: 6126541769205577441}
+  - component: {fileID: 2361242696359315359}
+  - component: {fileID: 8437947930918511000}
   m_Layer: 0
   m_Name: Beyblade
   m_TagString: Beyblade
@@ -233,11 +235,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 8740534856884358763}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62e96b51963b1d04b87289d8276e3ed0, type: 3}
+  m_Script: {fileID: 11500000, guid: e82a7e7b22d581443b52b20cef68f095, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  launchForce: 2.5
-  inwardForce: 3
+  config: {fileID: 0}
+  launchForce: 1
+  inwardForce: 10
   isStartRight: 1
   maxTiltAngle: 35
   ArenaCenter: {fileID: 0}
@@ -247,7 +250,7 @@ MonoBehaviour:
   legTransform: {fileID: 2229559961957602195}
   SparksEffect: {fileID: 2607065273153746303, guid: 0986da30bf6793d40b5d3c99726b9b13,
     type: 3}
---- !u!114 &1593113895904646264
+--- !u!114 &6260352034790990684
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -256,15 +259,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8740534856884358763}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f9fad57b6d083a46958b06e95386e4f, type: 3}
+  m_Script: {fileID: 11500000, guid: 85db9215c4cc04b438025cee2357c276, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Skin: {fileID: 0}
-  Character: {fileID: 0}
-  MaxHealth: {fileID: 11400000, guid: 5f33a27608f94554281280aba3f5d409, type: 2}
-  CurrentHealth: 0
-  _slider: {fileID: 8222767476001348228}
-  roundsPerMinute: 600
+  config: {fileID: 0}
 --- !u!65 &6126541769205577441
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -286,6 +284,38 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.2, y: 0.51, z: 2.5}
   m_Center: {x: 0, y: 0.11, z: 0}
+--- !u!114 &2361242696359315359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8740534856884358763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a9139c3ebfbcaa49a765dc1986a1119, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  config: {fileID: 0}
+  _slider: {fileID: 8222767476001348228}
+--- !u!114 &8437947930918511000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8740534856884358763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a2205ed5df21f349a6a1926a4904c01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  config: {fileID: 0}
+  maxHealth: 0
+  currentHealth: 0
+  attack: 0
+  defense: 0
+  roundsPerMinute: 0
 --- !u!1001 &8051833975396816240
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -302,7 +332,7 @@ PrefabInstance:
     - target: {fileID: 2134986749569454070, guid: 74cb84df521f943cdab1609ea60d72b6,
         type: 3}
       propertyPath: m_Name
-      value: Slider_Icon05_Yellow
+      value: Health Slider
       objectReference: {fileID: 0}
     - target: {fileID: 2134986749569454071, guid: 74cb84df521f943cdab1609ea60d72b6,
         type: 3}
