@@ -1,0 +1,177 @@
+{
+    "asset": {
+        "copyright": "2020 (c) Adobe Inc.",
+        "generator": "Adobe Dimension - ef4f41a6842c60acc27c15e21adfa2a5f9da2982",
+        "version": "2.0"
+    },
+    "accessors": [
+        {
+            "bufferView": 0,
+            "componentType": 5126,
+            "count": 1802,
+            "type": "VEC3",
+            "max": [
+                0.9473860859870911,
+                0.32790178060531618,
+                0.9473860859870911
+            ],
+            "min": [
+                -0.9473860859870911,
+                -0.23670287430286408,
+                -0.9473860859870911
+            ]
+        },
+        {
+            "bufferView": 1,
+            "componentType": 5126,
+            "count": 1802,
+            "type": "VEC3"
+        },
+        {
+            "bufferView": 2,
+            "componentType": 5126,
+            "count": 1802,
+            "type": "VEC2"
+        },
+        {
+            "bufferView": 3,
+            "componentType": 5125,
+            "count": 8088,
+            "type": "SCALAR",
+            "max": [
+                1801.0
+            ],
+            "min": [
+                0.0
+            ]
+        }
+    ],
+    "bufferViews": [
+        {
+            "buffer": 0,
+            "byteOffset": 0,
+            "byteLength": 21624,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 21624,
+            "byteLength": 21624,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 43248,
+            "byteLength": 14416,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 57664,
+            "byteLength": 32352,
+            "target": 34963
+        }
+    ],
+    "buffers": [
+        {
+            "byteLength": 90016,
+            "uri": "arena_bowl new_binary.bin"
+        }
+    ],
+    "cameras": [
+        {
+            "perspective": {
+                "znear": 0.0003153789439238608,
+                "yfov": 0.6024156808853149,
+                "zfar": 17.345840454101564,
+                "aspectRatio": 1.3333333730697632
+            },
+            "type": "perspective",
+            "name": "render_camera"
+        }
+    ],
+    "materials": [
+        {
+            "pbrMetallicRoughness": {
+                "baseColorFactor": [
+                    0.23839765787124635,
+                    0.3564002513885498,
+                    0.4620770514011383,
+                    1.0
+                ],
+                "metallicFactor": 0.0,
+                "roughnessFactor": 0.028999999165534974
+            },
+            "name": "Plastic 4",
+            "doubleSided": true
+        }
+    ],
+    "meshes": [
+        {
+            "name": "Object_4 2",
+            "primitives": [
+                {
+                    "attributes": {
+                        "POSITION": 0,
+                        "NORMAL": 1,
+                        "TEXCOORD_0": 2
+                    },
+                    "indices": 3,
+                    "material": 0
+                }
+            ]
+        }
+    ],
+    "nodes": [
+        {
+            "translation": [
+                0.5,
+                -0.23608581721782685,
+                0.5
+            ],
+            "rotation": [
+                -0.12059047073125839,
+                0.379409521818161,
+                0.04995020851492882,
+                0.9159756302833557
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                0.9999999403953552
+            ],
+            "camera": 0,
+            "name": "render_camera_n3d"
+        },
+        {
+            "translation": [
+                4.33680859300679e-21,
+                0.9455755352973938,
+                1.9834283193631564e-7
+            ],
+            "rotation": [
+                2.6865682801243548e-16,
+                -3.552713678800501e-15,
+                3.552713678800501e-15,
+                1.0
+            ],
+            "scale": [
+                5.824278831481934,
+                3.9947783946990969,
+                5.824278354644775
+            ],
+            "mesh": 0,
+            "name": "Object_4 2"
+        }
+    ],
+    "scenes": [
+        {
+            "nodes": [
+                0,
+                1
+            ],
+            "name": "scene"
+        }
+    ],
+    "scene": 0
+}

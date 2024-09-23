@@ -1,0 +1,84 @@
+newmtl Metal_Wheel
+illum 7
+Kd 0.690192 0.788235 0.811769
+adobe_interior_color 1 1 1
+Ni 1.6
+adobe_density 0
+Tr 0
+d 1
+Ka 0 0 0
+Ke 0 0 0
+Pm 1
+adobe_translucence 0
+Pr 0.5
+Ns 16
+Ks 1 1 1
+adobe_glow 0
+
+newmtl Plastic_Wheel
+illum 7
+Kd 0.46638 0 0.383634
+adobe_interior_color 1 1 1
+Ni 1.6
+adobe_density 0
+Tr 0
+d 1
+Ka 0 0 0
+Ke 0 0 0
+Pm 0
+adobe_translucence 0
+Pr 0.359375
+Ns 16
+Ks 1 1 1
+adobe_glow 0
+
+newmtl Material.004
+illum 7
+Kd 0.903528 0.297666 0.30747
+adobe_interior_color 1 1 1
+Ni 1.6
+adobe_density 0
+Tr 0
+d 1
+Ka 0 0 0
+Ke 0 0 0
+Pm 0
+adobe_translucence 0
+Pr 0.5
+Ns 16
+Ks 1 1 1
+adobe_glow 0
+
+newmtl Spin_track
+illum 7
+Kd 0.227449 0.250981 0.223527
+adobe_interior_color 1 1 1
+Ni 1.6
+adobe_density 0
+Tr 0
+d 1
+Ka 0 0 0
+Ke 0 0 0
+Pm 0
+adobe_translucence 0
+Pr 1
+Ns 16
+Ks 1 1 1
+adobe_glow 0
+
+newmtl material
+illum 7
+Kd 0.203963 0.225575 0.190294
+adobe_interior_color 1 1 1
+Ni 1.6
+adobe_density 0
+Tr 0
+d 1
+Ka 0 0 0
+Ke 0 0 0
+Pm 0
+adobe_translucence 0
+Pr 0
+Ns 16
+Ks 1 1 1
+adobe_glow 0
